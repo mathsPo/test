@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <title>PWA - TodoList</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="author" content="Didier Gillard">
+        <meta name="keywords" content="ressources pédagogiques, programmation Web, DUT informatique, IUT Reims, Progressive Web App, Javascript">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#87c6f7">
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+
+    </head>
+    <body>
+        <header>
+            <h1>My Todo List</h1>
+        </header>
+        <section class="form">
+            <form name="addTodo">
+                <label for="todo">Todo</label>
+                <input type="text" name="todo" id="todo"/>
+                <input type="submit" value="Add new todo" />
+            </form>
+        </section>
+        <section class="todos">
+        </section>
+
+        <script src="js/ihm.js" type='application/javascript'></script>
+        <script src="js/apiRequest.js" type='application/javascript'></script>
+        <script src="js/controller.js" type='application/javascript'></script>
+    </body>
+</html>

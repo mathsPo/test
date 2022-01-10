@@ -1,0 +1,68 @@
+html {
+    width: 100%;
+}
+
+body {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+
+section.form {
+    padding: 1rem;
+}
+
+form[name="addTodo"] {
+    display: flex;
+}
+
+input[type="text"] {
+    flex: 1;
+}
+
+form[name="addTodo"]>input,
+form[name="addTodo"]>label {
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 540px) {
+	form[name="addTodo"] {
+		flex-direction: column;
+	}		
+}
+
+section.todos {
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    background-color: rgb(248, 248, 130);
+    margin: 0.3rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    padding: 1rem;
+    box-shadow: 10px 5px 5px black;
+}
+
+article:hover {
+    box-shadow: none;
+    background-color: grey;
+    cursor: pointer;
+}
+
+article.done>span {
+    color:lightgray;
+    text-decoration: line-through;
+}
+
+article
+{
+ -moz-user-select: none; /* Firefox */
+ -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+ -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+ user-select: none; /* Propriété standard */
+}
