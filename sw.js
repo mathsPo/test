@@ -31,6 +31,16 @@ this.addEventListener('install', function(event) {
 });
 
 self.addEventListener("fetch", (event) => {
+    if (event.request.url.includes("background.css")) {
+        event.respondWith(
+            new Response(
+                "body {background: red;}", { headers: { "Content-Type": "text/css" }}
+            )
+        );
+    }
+});
+
+self.addEventListener("fetch", (event) => {
     // Nous voulons seulement répondre aux requêtes concernant notre application en testant l'URL de la requête
     if (event.request.url.startsWith("http://localhost:3000/")) {
         // Tente de produire une réponse à la requête fetch interceptée
