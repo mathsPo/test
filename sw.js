@@ -29,3 +29,17 @@ this.addEventListener('install', function(event) {
         })
     );
 });
+
+self.addEventListener("fetch", (event) => {
+    // Nous voulons seulement répondre aux requêtes concernant notre application en testant l'URL de la requête
+    if (event.request.url.startsWith("http://localhost:3000/")) {
+        // Tente de produire une réponse à la requête fetch interceptée
+        event.respondWith(
+            caches.open(STATIC_CACHE_NAME)
+                // En allant chercher la réponse dans le cache en premier
+                .then(cache => cache.match(event.request))
+                // Puis sur le réseau si elle n'existe pas dans le cache (cacheRequest === undefined)
+                .then(cacheRequest => cacheRequest || fetch(event.request))
+        );
+    }
+});
