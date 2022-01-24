@@ -1,4 +1,4 @@
-const STATIC_CACHE_NAME = "todosApp.v0"
+const STATIC_CACHE_NAME = "todosApp.v1"
 this.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(STATIC_CACHE_NAME).then(function(cache) {
@@ -36,14 +36,19 @@ self.addEventListener("fetch", (event) => {
     if (event.request.url.startsWith("http://localhost:3000/")) {
         // Tente de produire une réponse à la requête fetch interceptée
         event.respondWith(
-            caches.open(STATIC_CACHE_NAME)
-                // En allant chercher la réponse dans le cache en premier
-                .then(cache => cache.match(event.request))
-                // Puis sur le réseau si elle n'existe pas dans le cache (cacheRequest === undefined)
-                .then(cacheRequest => cacheRequest || fetch(event.request))
+            caches.open(STATIC_CACHE_NAME).then(function (cache) {
+                return cache.match(event.request).then(function (response) {
+                    const fetchPromise = fetch(event.request).then(function (networkResponse) {
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+                    return response || fetchPromise;
+                });
+            }),
         );
     }
 });
+
 
 self.addEventListener('activate', function(event) {
     event.waitUntil(
