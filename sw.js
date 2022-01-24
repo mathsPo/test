@@ -6,6 +6,7 @@ this.addEventListener('install', function(event) {
                 '/',
                 '/index.html',
                 '/css/style.css',
+                '/css/background.css',
                 '/icon/icon-512x512.png',
                 '/js/apiRequest.js',
                 '/js/controller.js',
@@ -28,16 +29,6 @@ this.addEventListener('install', function(event) {
             ]);
         })
     );
-});
-
-self.addEventListener("fetch", (event) => {
-    if (event.request.url.includes("background.css")) {
-        event.respondWith(
-            new Response(
-                "body {background: red;}", { headers: { "Content-Type": "text/css" }}
-            )
-        );
-    }
 });
 
 self.addEventListener("fetch", (event) => {
