@@ -1,8 +1,6 @@
 const conteneur_boutton = document.getElementById("button_install");
 const buttonInstall = document.getElementById("button");
 
-console.log(conteneur_boutton, buttonInstall);
-
 // Initialize deferredPrompt for use later to show browser install prompt.
 let deferredPrompt;
 
@@ -17,7 +15,6 @@ function hideInstallPromotion(){
 window.addEventListener('beforeinstallprompt', (e) => {
     // Prevent the mini-infobar from appearing on mobile
     e.preventDefault();
-    console.log('beforeinstallprompt', e);
     // Stash the event so it can be triggered later.
     deferredPrompt = e;
     // Update UI notify the user they can install the PWA
