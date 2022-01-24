@@ -1,6 +1,6 @@
 {
-    "short_name": "webmanifest",
-    "name": "webmanifest",
+    "short_name": "todolist",
+    "name": "todolist",
     "lang": "en",
     "start_url": "/",
     "background_color": "#00aae7",

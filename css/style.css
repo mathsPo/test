@@ -67,11 +67,14 @@ article
 }
 #button_install
 {
-    position: absolute;
-    bottom: 450px;
 
 }
 #button
 {
     background-color: red;
+    font-size: large;
+}
+
+.hidden{
+    display: none;
 }

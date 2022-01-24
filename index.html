@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
     <head>
         <title>PWA - TodoList</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -27,6 +27,9 @@
     <body>
         <header>
             <h1>My Todo List</h1>
+            <div id="button_install" class="hidden">
+                <input type="submit" value="installer" id="button" />
+            </div>
         </header>
         <section class="form">
             <form name="addTodo">
@@ -34,17 +37,14 @@
                 <input type="text" name="todo" id="todo"/>
                 <input type="submit" value="Add new todo" />
             </form>
-
-    <div id="button_install">
-        <input type="submit" name="installer" id="button" hidden/>
-        
-    </div>
         </section>
+
         <section class="todos">
         </section>
 
         <script src="js/ihm.js" type='application/javascript'></script>
         <script src="js/apiRequest.js" type='application/javascript'></script>
         <script src="js/controller.js" type='application/javascript'></script>
+        <script src="js/pwa.js" type="application/javascript"></script>
     </body>
 </html>
