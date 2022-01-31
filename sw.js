@@ -1,4 +1,6 @@
-const STATIC_CACHE_NAME = "todosApp.v1"
+const STATIC_CACHE_NAME = "todosApp.v1";
+const todoList_CACHE_NAME = 'todolist';
+
 this.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(STATIC_CACHE_NAME).then(function(cache) {
@@ -71,7 +73,7 @@ self.addEventListener('activate', function(event) {
 });
 self.addEventListener('fetch', function(event) {
     event.respondWith(
-        caches.open(STATIC_CACHE_NAME).then(function(cache) {
+        caches.open(todoList_CACHE_NAME).then(function(cache) {
             return fetch(event.request).then(function(response) {
                 cache.put(event.request, response.clone());
                 return response;
