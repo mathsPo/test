@@ -5,7 +5,9 @@ const form = document.querySelector("form");
  * Ajout d'un spinner au chargement de la page
  */
 function startSpinner(){
-
+    const div = document.createElement('div');
+    div.className = 'spinner-border';
+    form.appendChild(div);
 }
 
 /**
