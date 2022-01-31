@@ -1,13 +1,16 @@
 const todosContainer = document.querySelector("section.todos");
 const form = document.querySelector("form");
-
+const div = document.createElement('div');
 /**
  * Ajout d'un spinner au chargement de la page
  */
 function startSpinner(){
-    const div = document.createElement('div');
     div.className = 'spinner-border';
     form.appendChild(div);
+}
+
+function stopSpinner(){
+    div.classList.add('hidden');
 }
 
 /**

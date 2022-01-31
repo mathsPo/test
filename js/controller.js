@@ -28,6 +28,7 @@
     // we didn't get cached data, the network is our last hope:
     return networkUpdate;
 }).catch(showErrorMessage).then(stopSpinner());
+    console.log('coucou');
 }
 
 /**
