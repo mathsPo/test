@@ -17,6 +17,15 @@ function stopSpinner(){
 }
 
 /**
+ * Vide la page web des todos pour en ajouter de nouveaux
+ * @param todos liste des nouveaux todos
+ */
+function updatePage(todos){
+    clearTodos()
+    todos.forEach(todo => appendTodoHtml(todo));
+}
+
+/**
  * Après le chargement de la page
  */
 window.addEventListener('load', () => {
