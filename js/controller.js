@@ -9,14 +9,14 @@
     startSpinner();
 
 // fetch fresh data
-    var networkUpdate = fetch(todoList_CACHE_NAME).then(function(response) {
+    var networkUpdate = fetchTodos().then(function(response) {
         return response.json();
     }).then(function(data) {
         networkDataReceived = true;
         updatePage(data);
     });
     // fetch cached data
-    caches.match(todoList_CACHE_NAME).then(function(response) {
+    caches.match(apiUrl).then(function(response) {
         if (!response) throw Error("No data");
         return response.json();
     }).then(function(data) {

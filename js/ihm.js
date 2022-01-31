@@ -1,4 +1,12 @@
 const todosContainer = document.querySelector("section.todos");
+const form = document.querySelector("form");
+
+/**
+ * Ajout d'un spinner au chargement de la page
+ */
+function startSpinner(){
+
+}
 
 /**
  * Après le chargement de la page
