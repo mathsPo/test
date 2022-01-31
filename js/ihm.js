@@ -6,14 +6,14 @@ const spinner = document.getElementById("spin");
  * Ajout d'un spinner au chargement de la page
  */
 function startSpinner(){
-    spinner.classList.remove('hidden');
+    spinner.classList.add('hidden');
 }
 
 /**
  * Suppression du spinner
  */
 function stopSpinner(){
-    spinner.classList.add('hidden');
+    spinner.classList.remove('hidden');
 }
 
 /**
