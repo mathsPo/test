@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="css/background.css" type="text/css"/>
         <link rel="apple-touch-icon" href="//home/Users/pol0009/todolist-pwa/icon/android-icon-192x192-seochecker-manifest-5510.png">
         <link rel="manifest" href="manifest.json">
-        <script type="module" src="node_modules/spin.js/spin.js"></script>
         <script>
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js').then(function(reg) {
@@ -32,7 +31,9 @@
     <body>
         <header>
             <h1>My Todo List</h1>
+
             <div class="spinner-border hidden" id="spin"></div>
+
             <div id="button_install" class="hidden">
                 <input type="submit" value="installer" id="button" />
             </div>

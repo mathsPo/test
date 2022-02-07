@@ -6,14 +6,17 @@ const spinner = document.getElementById("spin");
  * Ajout d'un spinner au chargement de la page
  */
 function startSpinner(){
-    spinner.classList.add('hidden');
+    spinner.classList.remove('hidden');
 }
 
 /**
  * Suppression du spinner
  */
 function stopSpinner(){
-    spinner.classList.remove('hidden');
+    window.setTimeout(function(){
+        spinner.classList.add('hidden');
+    }, 300)
+
 }
 
 /**
@@ -23,6 +26,15 @@ function stopSpinner(){
 function updatePage(todos){
     clearTodos()
     todos.forEach(todo => appendTodoHtml(todo));
+}
+
+/**
+ * Affiche un message d'erreur si aucune donnée n'a pu etre recup
+ * @param error
+ * @returns {null}
+ */
+function showErrorMessage(error){
+    return null;
 }
 
 /**
