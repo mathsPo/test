@@ -25,7 +25,7 @@ function stopSpinner(){
  */
 function updatePage(todos){
     clearTodos()
-    todos.forEach(todo => appendTodoHtml(todo));
+    todos.forEach(todo => appendTodoHtml(todo))
 }
 
 /**
@@ -34,7 +34,8 @@ function updatePage(todos){
  * @returns {null}
  */
 function showErrorMessage(error){
-    return null;
+    error = 'Aucune donée n\'a pu etre recuperer';
+    return alert(error);
 }
 
 /**

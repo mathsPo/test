@@ -16,19 +16,18 @@
         updatePage(data);
     });
     // fetch cached data
-    caches.match('http://localhost:7000/todos/').then(function(response) {
+    caches.match(apiUrl).then(function(response) {
         if (!response) throw Error("No data");
         return response.json();
     }).then(function(data) {
         // don't overwrite newer network data
-        console.log(networkDataReceived);
         if (!networkDataReceived) {
             updatePage(data);
         }
     }).catch(function() {
     // we didn't get cached data, the network is our last hope:
     return networkUpdate;
-}).catch(showErrorMessage).then(stopSpinner);
+}).catch(showErrorMessage()).then(stopSpinner);
 }
 
 /**
