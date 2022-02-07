@@ -51,6 +51,18 @@ self.addEventListener("fetch", (event) => {
     }
 });
 
+self.addEventListener('fetch', function(event) {
+    if (event.request.url.startsWith("http://localhost:3000/")) {
+        event.respondWith(
+            caches.open(todoList_CACHE_NAME).then(function (cache) {
+                return fetch(event.request).then(function (response) {
+                    cache.put(event.request, response.clone());
+                    return response;
+                });
+            })
+        );
+    }
+});
 
 self.addEventListener('activate', function(event) {
     event.waitUntil(
@@ -68,16 +80,6 @@ self.addEventListener('activate', function(event) {
                     return caches.delete(cacheName);
                 })
             );
-        })
-    );
-});
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.open(todoList_CACHE_NAME).then(function(cache) {
-            return fetch(event.request).then(function(response) {
-                cache.put(event.request, response.clone());
-                return response;
-            });
         })
     );
 });

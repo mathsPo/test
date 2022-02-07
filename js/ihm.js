@@ -34,7 +34,7 @@ function updatePage(todos){
  * @returns {null}
  */
 function showErrorMessage(error){
-    error = 'Aucune donée n\'a pu etre recuperé sur le reseaux, affichage des données contenue dans le cache';
+    error = 'Aucune donnée n\'a pu etre recuperé sur le reseaux, affichage des données contenue dans le cache';
     return alert(error);
 }
 
