@@ -9,9 +9,7 @@
     startSpinner();
 
 // fetch fresh data
-    var networkUpdate = fetchTodos().then(function(response) {
-        return response.json();
-    }).then(function(data) {
+    var networkUpdate = fetchTodos().then(function(data) {
         networkDataReceived = true;
         updatePage(data);
     });
