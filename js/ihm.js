@@ -101,10 +101,13 @@ function clearTodos() {
  * @returns l'élément HTML correspondant au bouton créé
  */
 function createTrashButton(id) {
-    const trash = document.createElement('input');
+    const trash = document.createElement('button');
     trash.type = 'button';
     trash.name = 'trash';
-    trash.value = '🗑';
+    const span = document.createElement('span');
+    span.classList.add('material-icons');
+    span.innerHTML = 'delete';
+    trash.appendChild(span);
 
     trash.addEventListener('click', (event) => {
         event.stopPropagation();
