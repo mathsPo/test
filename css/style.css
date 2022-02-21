@@ -78,3 +78,7 @@ article
 .hidden{
     display: none;
 }
+
+#bb{
+    background-color: grey;
+}
