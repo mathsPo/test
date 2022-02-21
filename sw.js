@@ -27,7 +27,10 @@ this.addEventListener('install', function(event) {
                 '/icon/favicon-16x16-seochecker-manifest-5510.png',
                 '/icon/apple-icon-152x152-seochecker-manifest-5510.png',
                 '/icon/apple-icon-144x144-seochecker-manifest-5510.png',
-                '/icon/apple-icon-180x180-seochecker-manifest-5510.png'
+                '/icon/apple-icon-180x180-seochecker-manifest-5510.png',
+                'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
+                'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css',
+                'https://fonts.googleapis.com/icon?family=Material+Icons'
             ]);
         })
     );
