@@ -1,4 +1,3 @@
-import {MDCBanner} from '@material/banner';
 const todosContainer = document.querySelector("section.todos");
 const form = document.querySelector("form");
 const spinner = document.getElementById("spin");
@@ -142,6 +141,6 @@ function toggleTodoHtml(id, done) {
  * Bascule l'application en mode hors ligne si la liste des taches n'a pu etre obtenue
  */
 function setOfflineMode() {
-    const banner = new MDCBanner(document.querySelector('.mdc-banner'));
+    const banner = new mdc.banner.MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
 }

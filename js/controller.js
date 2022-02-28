@@ -12,7 +12,7 @@ function getTodos() {
     var networkUpdate = fetchTodos().then(function (data) {
         networkDataReceived = true;
         updatePage(data);
-    });
+    }).catch(setOfflineMode);
     // fetch cached data
     caches.match(apiUrl).then(function (response) {
         if (!response) throw Error("No data");

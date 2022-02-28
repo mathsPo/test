@@ -82,3 +82,12 @@ article
 #bb{
     background-color: grey;
 }
+
+.mdc-banner--centered{
+    text-align: center;
+    border: black solid ;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    flex-wrap: wrap;
+}
