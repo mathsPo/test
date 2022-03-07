@@ -1,7 +1,7 @@
 const todosContainer = document.querySelector("section.todos");
-const form = document.querySelector("form");
 const spinner = document.getElementById("spin");
 const buttonAdd = document.getElementById("bb");
+const trash = document.getElementsByTagName("trash");
 
 /**
  * Ajout d'un spinner au chargement de la page
@@ -74,7 +74,7 @@ function appendTodoHtml(todo) {
         article.classList.add('done');
     }
 
-    article.addEventListener('click', () => toggleTodo(todo.id, article.classList.contains('done')));
+    article.onclick= () => toggleTodo(todo.id, article.classList.contains('done'));
 
     todosContainer.appendChild(article);
 }
@@ -105,17 +105,17 @@ function createTrashButton(id) {
     const trash = document.createElement('button');
     trash.type = 'button';
     trash.name = 'trash';
+    trash.classList.add('trash');
     const span = document.createElement('span');
     span.classList.add('material-icons');
     span.innerHTML = 'delete';
     trash.appendChild(span);
 
-    trash.addEventListener('click', (event) => {
+    trash.onclick=(event) => {
         event.stopPropagation();
 
         deleteTodo(id, event);
-    });
-    
+    };
     return trash;
 }
 
@@ -150,4 +150,15 @@ function disabledTodoActions() {
     buttonAdd.disabled = true;
     document.getElementById("button").disabled = true;
     document.getElementById('todo'). disabled = true;
+    const poubelles = document.querySelectorAll(".trash");
+    const articles = document.querySelectorAll("article");
+
+
+    poubelles.forEach((poubelle) => {
+        (poubelle.onclick = () => {})
+        })
+
+    articles.forEach((article) => {
+        (article.onclick = () => {})
+        })
 }
