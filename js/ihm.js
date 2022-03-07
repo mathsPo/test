@@ -1,6 +1,7 @@
 const todosContainer = document.querySelector("section.todos");
 const form = document.querySelector("form");
 const spinner = document.getElementById("spin");
+const buttonAdd = document.getElementById("bb");
 
 /**
  * Ajout d'un spinner au chargement de la page
@@ -143,4 +144,8 @@ function toggleTodoHtml(id, done) {
 function setOfflineMode() {
     const banner = new mdc.banner.MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
+}
+
+function disabledTodoActions() {
+    buttonAdd.disabled = true;
 }
