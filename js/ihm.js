@@ -148,4 +148,5 @@ function setOfflineMode() {
 
 function disabledTodoActions() {
     buttonAdd.disabled = true;
+    document.getElementById("button").disabled = true;
 }
