@@ -7,6 +7,7 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
+    background-color: lightblue;
 }
 
 section.form {
@@ -65,10 +66,7 @@ article
  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
  user-select: none; /* Propriété standard */
 }
-#button_install
-{
 
-}
 #button
 {
     background-color: red;

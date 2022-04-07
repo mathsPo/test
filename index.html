@@ -3,16 +3,16 @@
 <head>
     <title>PWA - TodoList</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="author" content="Didier Gillard">
-    <meta name="keywords" content="ressources pédagogiques, programmation Web, DUT informatique, IUT Reims, Progressive Web App, Javascript">
+    <meta name="author" content="Pol Mathis">
+    <meta name="description" content="Voici ici un PWA de réalité virtuelle creer pour la Société Saint Ex culture numérique">
+    <meta name="keywords" content="programmation Web, Progressive Web App, Javascript, Réalité virtuelle">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#87c6f7">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <link rel="preload" as="style" href="css/style.css">
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/background.css" type="text/css"/>
     <link rel="apple-touch-icon" href="//home/Users/pol0009/todolist-pwa/icon/android-icon-192x192-seochecker-manifest-5510.png">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -21,10 +21,8 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js').then(function(reg) {
-                // registration worked
                 console.log('Registration succeeded. Scope is ' + reg.scope);
             }).catch(function(error) {
-                // registration failed
                 console.log('Registration failed with ' + error);
             });
         };
@@ -33,7 +31,7 @@
 </head>
 <body>
 <header>
-    <h1>My Todo List
+    <h1>PWA RA
         <span class="material-icons">
                     calendar_today
                 </span>
@@ -71,16 +69,15 @@
 
 
     <form name="addTodo">
-        <label for="todo">Todo</label>
+        <label for="todo">model</label>
         <input type="text" name="todo" id="todo"/>
         <button type="submit" class="mdc-button mdc-button--raised mdc-button--leading" id="bb">
             <i class="mdc-button__label">
-                Add new todo
+                Add new modeles
             </i>
             <span class="material-icons">
                         add_circle_outline
-                    </span>
-
+            </span>        
         </button>
     </form>
 </section>

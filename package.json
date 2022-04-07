@@ -2,6 +2,7 @@
   "name": "todolist-pwa",
   "version": "1.0.0",
   "dependencies": {
+    "@google/model-viewer": "^1.11.0",
     "@material/banner": "^13.0.0"
   }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="../css/modele.css" type="text/css"/>
+
+    <title>Model de doggy</title>
+  </head>
+  <body>
+    <div className="App">
+        <img id="logostex" src=../icon/stex.png alt="" />
+        <model-viewer id="model" src="../icon/cubeLUT.glb" shadow-intensity="1" ar ar-modes="webxr scene-viewer quick-look" camera-controls min-camera-orbit="auto auto 100%" max-camera-orbit="auto auto 100%" min-field-of-view="45deg" max-field-of-view="45deg" environment-image="neutral" auto-rotate autoplay></model-viewer>
+      </div>
+  </body>
+</html>

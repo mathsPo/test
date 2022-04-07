@@ -1,4 +1,4 @@
-const STATIC_CACHE_NAME = "todosApp.v1";
+const STATIC_CACHE_NAME = "webApp.v1";
 const todoList_CACHE_NAME = 'todolist';
 
 this.addEventListener('install', function(event) {
@@ -7,14 +7,20 @@ this.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
+                '/models/modele5.html',
+                '/models/modele6.html',
+                '/models/modele7.html',
+                '/models/modele8.html',
                 '/css/style.css',
-                '/css/background.css',
-                '/icon/icon-512x512.png',
                 '/js/apiRequest.js',
                 '/js/controller.js',
                 '/js/ihm.js',
                 '/js/pwa.js',
                 '/manifest.json',
+                '/icon/antilope.glb',
+                '/icon/Doggy.glb',
+                '/icon/stex.png',
+                '/icon/icon-512x512.png',
                 '/icon/apple-icon-120x120-seochecker-manifest-5510.png',
                 '/icon/android-icon-192x192-seochecker-manifest-5510.png',
                 '/icon/apple-icon-57x57-seochecker-manifest-5510.png',
@@ -37,9 +43,7 @@ this.addEventListener('install', function(event) {
 });
 
 self.addEventListener("fetch", (event) => {
-    // Nous voulons seulement répondre aux requêtes concernant notre application en testant l'URL de la requête
-    if (event.request.url.startsWith("http://localhost:3000/")) {
-        // Tente de produire une réponse à la requête fetch interceptée
+    if (event.request.url.startsWith("http://localhost:5500/")) {
         event.respondWith(
             caches.open(STATIC_CACHE_NAME).then(function (cache) {
                 return cache.match(event.request).then(function (response) {
@@ -63,9 +67,6 @@ self.addEventListener('activate', function(event) {
                     {
                         return true;
                     }
-                    // Return true if you want to remove this cache,
-                    // but remember that caches are shared across
-                    // the whole origin
                 }).map(function(cacheName) {
                     return caches.delete(cacheName);
                 })

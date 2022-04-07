@@ -1,0 +1,23 @@
+html{
+    min-height: 100%;
+}
+
+body {  
+    min-height:100%;
+    background-color: bisque;
+    }
+
+#logostex {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+    }
+
+#model {
+    width: 100%;
+    min-height: 700px;
+}
+

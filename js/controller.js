@@ -1,6 +1,3 @@
-/**
- * Récupération des todos de l'API et insertion dans la page web
- */
 function getTodos() {
     console.log('get todos request');
 
@@ -8,23 +5,19 @@ function getTodos() {
     var networkDataReceived = false;
     startSpinner();
 
-// fetch fresh data
     var networkUpdate = fetchTodos().then(function (data) {
         networkDataReceived = true;
         updatePage(data);
     }).catch(setOfflineMode)
         .catch(disabledTodoActions)
-    // fetch cached data
     caches.match(apiUrl).then(function (response) {
         if (!response) throw Error("No data");
         return response.json();
     }).then(function (data) {
-        // don't overwrite newer network data
         if (!networkDataReceived) {
             updatePage(data);
         }
     }).catch(function () {
-        // we didn't get cached data, the network is our last hope:
         return networkUpdate;
     }).catch(showErrorMessage)
         .then(stopSpinner);

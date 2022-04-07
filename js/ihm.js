@@ -29,7 +29,7 @@ function updatePage(todos){
     todos.forEach(todo => appendTodoHtml(todo))
 }
 
-/**
+/** 
  * Affiche un message d'erreur si aucune donnée n'a pu etre recup
  * @param error
  * @returns {null}
@@ -97,26 +97,52 @@ function clearTodos() {
 }
 
 /**
+ * Création d'un bouton de type 'visualisation RA' déclenchant la redurection vers une autre page identifié par id
  * Création d'un bouton de type 'poubelle' déclenchant la suppression du todo identifié par id
- * @param {number} id du todo à supprimer
+ *  @param todos à ajouter dans la page web
  * @returns l'élément HTML correspondant au bouton créé
  */
 function createTrashButton(id) {
-    const trash = document.createElement('button');
-    trash.type = 'button';
-    trash.name = 'trash';
-    trash.classList.add('trash');
+    /* Creation du bouton de RA */
+    const va_icon = document.createElement('button');
+    va_icon.type = 'button';
+    va_icon.name = 'va';
+    va_icon.classList.add('va');
     const span = document.createElement('span');
     span.classList.add('material-icons');
-    span.innerHTML = 'delete';
-    trash.appendChild(span);
+    span.innerHTML = 'view_in_ar';
+    va_icon.appendChild(span); 
 
-    trash.onclick=(event) => {
-        event.stopPropagation();
+    /* Creation du bouton poubelle */
+    const del = document.createElement('button');
+    del.type = 'button';
+    del.name = 'del';
+    del.classList.add('del')
+    const span2 = document.createElement('span');
+    span2.classList.add('material-icons');
+    span2.innerHTML = 'delete';
+    del.appendChild(span2);
 
-        deleteTodo(id, event);
+    /* Creation du div contenant les options de manipulation */
+    const div = document.createElement('div');
+    div.type = 'container';
+    div.appendChild(va_icon);
+    div.appendChild(del); 
+
+    /* L'action que produit le bouton de RA */
+    va_icon.onclick=(event) => {
+        document.location.href="../models/modele" + id + ".html";
+        event.stopPropagation(); 
     };
-    return trash;
+
+    /* L'action que produit le bouton de la poubelle */
+    del.onclick=(event) => {
+        deleteTodo(id, event);
+        event.stopPropagation();
+    };
+   
+    return div;
+
 }
 
 /**
@@ -125,6 +151,7 @@ function createTrashButton(id) {
  */
 function deleteTodoHtml(id) {
     const article = document.querySelector('#article'+id);
+    console.log("delete succeful");         
     todosContainer.removeChild(article);
 }
 

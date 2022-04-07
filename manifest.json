@@ -1,8 +1,8 @@
 {
-    "short_name": "todolist",
-    "name": "todolist",
-    "lang": "en",
-    "start_url": "/",
+    "short_name": "pwa-ra",
+    "name": "la pwa, le nouvel outil de mediation basé sur la réalité virtuelle",
+    "lang": "fr",
+    "start_url": "/index.html",
     "background_color": "#00aae7",
     "theme_color": "#00aae7",
     "dir": "ltr",
