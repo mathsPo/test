@@ -7,10 +7,10 @@ this.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/models/modele5.html',
-                '/models/modele6.html',
-                '/models/modele7.html',
                 '/models/modele8.html',
+                '/models/modele6.html',
+                '/models/modele9.html',
+                '/models/modele11.html',
                 '/css/style.css',
                 '/js/apiRequest.js',
                 '/js/controller.js',
