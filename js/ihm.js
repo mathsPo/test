@@ -131,7 +131,7 @@ function createTrashButton(id) {
 
     /* L'action que produit le bouton de RA */
     va_icon.onclick=(event) => {
-        document.location.href="../models/modele" + id + ".html";
+        document.location.href="models/modele" + id + ".html";
         event.stopPropagation(); 
     };
 
