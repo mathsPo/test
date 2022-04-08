@@ -82,8 +82,10 @@ self.addEventListener('fetch', function(event) {
     if (event.request.url.startsWith("http://localhost:7000/")) {
         event.respondWith(
             caches.open(todoList_CACHE_NAME).then(function (cache) {
+                console.log(event.request);
                 return fetch(event.request).then(function (response) {
                     cache.put(event.request, response.clone());
+                    console.log(response);
                     return response;
                 });
             })

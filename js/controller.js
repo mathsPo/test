@@ -9,7 +9,6 @@ function getTodos() {
         networkDataReceived = true;
         updatePage(data);
     }).catch(setOfflineMode)
-        .catch(disabledTodoActions)
     caches.match(apiUrl).then(function (response) {
         if (!response) throw Error("No data");
         return response.json();
@@ -34,18 +33,6 @@ function addTodo(text) {
         .then(data => {
             appendTodoHtml(data);
         });
-}
-
-/**
- * Basculement du todo identifié par id d'un état réalisé à un état non réalisé ou inversement dans l'API puis dans la page web
- * @param {number} id identifie le todo
- * @param {boolean} done état initial du todo
- */
-function toggleTodo(id, done) {
-    console.log('Toggle todo ' + id + ' request');
-
-    fetchToggleTodo(id, !done)
-        .then(data => toggleTodoHtml(id, data.done));
 }
 
 /**

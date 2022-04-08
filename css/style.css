@@ -7,7 +7,7 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
-    background-color: lightblue;
+    background-color: rgb(244, 244, 244);
 }
 
 section.form {
@@ -39,19 +39,20 @@ section.todos {
 }
 
 article {
-    background-color: rgb(248, 248, 130);
-    margin: 0.3rem 1rem;
+    background-color: white;
+    margin: 0.5rem 1rem;
     display: flex;
+    font-weight: 500;
     justify-content: space-between;
-    border: 1px solid;
+    border: 17px solid rgb(255, 235, 0);
+    border-radius: 3px;
     padding: 1rem;
-    box-shadow: 10px 5px 5px black;
 }
 
 article:hover {
     box-shadow: none;
-    background-color: grey;
-    cursor: pointer;
+    background-color: "#F4F4F4";
+    cursor: pointer;    
 }
 
 article.done>span {
@@ -67,12 +68,34 @@ article
  user-select: none; /* Propriété standard */
 }
 
-#button
-{
+.contain{
+    display: block;
+} 
+
+.texte-explicatif{
+    display: inline-block;
+    text-align: justify;
+    width: 85%;
+    background-color: white;
+    margin: 0.5rem 1rem;
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+    border: 17px solid rgb(255, 235, 0);
+    border-radius: 3px;
+    padding: 1rem;
+}
+
+#button_install{
+    background-color: aqua;
+    display: inline-block;
+    width: 5%;
+}
+
+#button{
     background-color: red;
     font-size: large;
 }
-
 .hidden{
     display: none;
 }
@@ -89,3 +112,8 @@ article
     margin: 10px;
     flex-wrap: wrap;
 }
+
+.texte-explicatif{
+    float: right;
+}
+

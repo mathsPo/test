@@ -2,7 +2,9 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>PWA - TodoList</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta charset="UTF-8">
+
     <meta name="author" content="Pol Mathis">
     <meta name="description" content="Voici ici un PWA de réalité virtuelle creer pour la Société Saint Ex culture numérique">
     <meta name="keywords" content="programmation Web, Progressive Web App, Javascript, Réalité virtuelle">
@@ -33,8 +35,8 @@
 <header>
     <h1>PWA RA
         <span class="material-icons">
-                    calendar_today
-                </span>
+            qr_code_scanner
+        </span>
     </h1>
 
     <div class="mdc-banner mdc-banner--centered" role="banner">
@@ -55,25 +57,35 @@
         </div>
     </div>
 
+    
     <div class="spinner-border hidden" id="spin"></div>
-
-    <div id="button_install" class="hidden">
-        <button type="submit" value="installer" id="button">
-                    <span class="material-icons">
-                        get_app
-                    </span>
-        </button>
-    </div>
+    
 </header>
+
+    <div class="contain">
+        <div id="button_install" class="hidden">
+            <button type="submit" value="installer" id="button">
+                <span class="material-icons">
+                    get_app
+                </span>
+            </button>
+        </div>
+        <div class="texte-explicatif">
+            <p>
+                Saint-Ex voit le jour en 1947 sous la forme d’une association culturelle à vocation éducative. En 1971 après 24 ans d’existence, elle s’installe sur l’esplanade André Malraux, dans ses locaux actuels.
+                C’est en 1998 que l’association évolue pour devenir un centre culturel. Ce nouveau statut s’accompagne d’une ligne directrice : création et technologie. Au fil des années, cette thématique se développe et Saint-Ex devient un espace exclusivement dédié aux cultures numériques.
+            </p>
+        </div>      
+    </div>
+
 <section class="form">
 
-
     <form name="addTodo">
-        <label for="todo">model</label>
+        <label for="todo">modele</label>
         <input type="text" name="todo" id="todo"/>
         <button type="submit" class="mdc-button mdc-button--raised mdc-button--leading" id="bb">
             <i class="mdc-button__label">
-                Add new modeles
+                Ajouter un nouveau modele
             </i>
             <span class="material-icons">
                         add_circle_outline

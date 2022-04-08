@@ -74,8 +74,6 @@ function appendTodoHtml(todo) {
         article.classList.add('done');
     }
 
-    article.onclick= () => toggleTodo(todo.id, article.classList.contains('done'));
-
     todosContainer.appendChild(article);
 }
 
@@ -135,6 +133,7 @@ function createTrashButton(id) {
         event.stopPropagation(); 
     };
 
+    console.log(id);
     /* L'action que produit le bouton de la poubelle */
     del.onclick=(event) => {
         deleteTodo(id, event);
@@ -151,19 +150,10 @@ function createTrashButton(id) {
  */
 function deleteTodoHtml(id) {
     const article = document.querySelector('#article'+id);
-    console.log("delete succeful");         
+    console.log("successfully deleted");         
     todosContainer.removeChild(article);
 }
 
-/**
- * Met à jour l'état du todo id dans la page web
- * @param {number} id identifiant du todo
- * @param {boolean} done état du todo
- */
-function toggleTodoHtml(id, done) {
-    const article = document.querySelector('#article'+id);
-    article.classList.toggle('done', done);
-}
 
 /**
  * Bascule l'application en mode hors ligne si la liste des taches n'a pu etre obtenue
@@ -171,21 +161,4 @@ function toggleTodoHtml(id, done) {
 function setOfflineMode() {
     const banner = new mdc.banner.MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
-}
-
-function disabledTodoActions() {
-    buttonAdd.disabled = true;
-    document.getElementById("button").disabled = true;
-    document.getElementById('todo'). disabled = true;
-    const poubelles = document.querySelectorAll(".trash");
-    const articles = document.querySelectorAll("article");
-
-
-    poubelles.forEach((poubelle) => {
-        (poubelle.onclick = () => {})
-        })
-
-    articles.forEach((article) => {
-        (article.onclick = () => {})
-        })
 }
