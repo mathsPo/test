@@ -7,10 +7,10 @@ this.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/models/modele1.html',
-                '/models/modele2.html',
-                '/models/modele3.html',
-                '/models/modele4.html',
+                '/models/antilope.html',
+                '/models/doggy.html',
+                '/models/bee.html',
+                '/models/cube.html',
                 '/css/style.css',
                 '/css/modele.css',
                 '/js/apiRequest.js',
@@ -23,20 +23,16 @@ this.addEventListener('install', function(event) {
                 '/icon/Bee.glb',
                 '/icon/cubeLUT.glb',
                 '/icon/stex.png',
-                '/icon/icon-512x512.png',
-                '/icon/apple-icon-120x120-seochecker-manifest-5510.png',
-                '/icon/android-icon-192x192-seochecker-manifest-5510.png',
-                '/icon/apple-icon-57x57-seochecker-manifest-5510.png',
-                '/icon/apple-icon-72x72-seochecker-manifest-5510.png',
-                '/icon/apple-icon-114x114-seochecker-manifest-5510.png',
-                '/icon/apple-icon-76x76-seochecker-manifest-5510.png',
-                '/icon/apple-icon-60x60-seochecker-manifest-5510.png',
-                '/icon/favicon-96x96-seochecker-manifest-5510.png',
-                '/icon/favicon-32x32-seochecker-manifest-5510.png',
-                '/icon/favicon-16x16-seochecker-manifest-5510.png',
-                '/icon/apple-icon-152x152-seochecker-manifest-5510.png',
-                '/icon/apple-icon-144x144-seochecker-manifest-5510.png',
-                '/icon/apple-icon-180x180-seochecker-manifest-5510.png',
+                '/icon/saint_ex_16x16.png',
+                '/icon/saint_ex_32x32.png',
+                '/icon/saint_ex_60x60.png',
+                '/icon/saint_ex_72x72.png',
+                '/icon/saint_ex_96x96.png',
+                '/icon/saint_ex_120x120.png',
+                '/icon/saint_ex_144x144.png',
+                '/icon/saint_ex_152x152.png',
+                '/icon/saint_ex_180x180.png',
+                '/icon/saint_ex_512x512.png',
                 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
                 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css',
                 'https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -82,10 +78,8 @@ self.addEventListener('fetch', function(event) {
     if (event.request.url.startsWith("http://localhost:7000/")) {
         event.respondWith(
             caches.open(todoList_CACHE_NAME).then(function (cache) {
-                console.log(event.request);
                 return fetch(event.request).then(function (response) {
                     cache.put(event.request, response.clone());
-                    console.log(response);
                     return response;
                 });
             })

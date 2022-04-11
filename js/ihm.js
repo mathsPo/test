@@ -21,7 +21,7 @@ function stopSpinner(){
 }
 
 /**
- * Vide la page web des todos pour en ajouter de nouveaux
+ * Vide la page web des modeles pour en ajouter de nouveaux
  * @param todos liste des nouveaux todos
  */
 function updatePage(todos){
@@ -58,21 +58,18 @@ window.addEventListener('load', () => {
 });
 
 /**
- * Ajout d'un todo dans la page web
- * @param {{id, done, text}} todo à ajouter dans la page web
+ * Ajout d'un modele dans la page web
+ * @param {{id, text}} todo à ajouter dans la page web
  */
 function appendTodoHtml(todo) {
+
     const article = document.createElement('article');
     const span = document.createElement('span');
     span.innerText = todo.text;
     article.appendChild(span);
     article.id = 'article' + todo.id;
 
-    article.appendChild(createTrashButton(todo.id));
-
-    if (todo.done) {
-        article.classList.add('done');
-    }
+    article.appendChild(createTrashButton(todo));
 
     todosContainer.appendChild(article);
 }
@@ -95,12 +92,10 @@ function clearTodos() {
 }
 
 /**
- * Création d'un bouton de type 'visualisation RA' déclenchant la redurection vers une autre page identifié par id
- * Création d'un bouton de type 'poubelle' déclenchant la suppression du todo identifié par id
- *  @param todos à ajouter dans la page web
- * @returns l'élément HTML correspondant au bouton créé
+ * Ajout d'un modele dans la page web
+ * @param {{id, text}} todo à ajouter dans la page web
  */
-function createTrashButton(id) {
+function createTrashButton(todo) {
     /* Creation du bouton de RA */
     const va_icon = document.createElement('button');
     va_icon.type = 'button';
@@ -129,14 +124,13 @@ function createTrashButton(id) {
 
     /* L'action que produit le bouton de RA */
     va_icon.onclick=(event) => {
-        document.location.href="models/modele" + id + ".html";
+        document.location.href="models/" + todo.text + ".html";
         event.stopPropagation(); 
     };
 
-    console.log(id);
     /* L'action que produit le bouton de la poubelle */
     del.onclick=(event) => {
-        deleteTodo(id, event);
+        deleteTodo(todo.id, event);
         event.stopPropagation();
     };
    
@@ -145,7 +139,7 @@ function createTrashButton(id) {
 }
 
 /**
- * Suppression du todo de la page web
+ * Suppression du modele de la page web
  * @param {number} id 
  */
 function deleteTodoHtml(id) {
