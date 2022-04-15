@@ -5,21 +5,28 @@ function getTodos() {
     var networkDataReceived = false;
     startSpinner();
 
-    var networkUpdate = fetchTodos().then(function (data) {
+    var networkUpdate = fetchTodos();
+        (data, err) => {
         networkDataReceived = true;
         updatePage(data);
-    }).catch(setOfflineMode)
-    caches.match(apiUrl).then(function (response) {
-        if (!response) throw Error("No data");
+        if (err){
+            setOfflineMode;
+        }
+    };
+    caches.match(remoteCouch), (response) => {
+        if(!response){
+            throw Error("No data");
+        }
         return response.json();
-    }).then(function (data) {
-        if (!networkDataReceived) {
+    }, (data, err) => {
+        if(!networkDataReceived){
             updatePage(data);
         }
-    }).catch(function () {
-        return networkUpdate;
-    }).catch(showErrorMessage)
-        .then(stopSpinner);
+        if(err){
+            () => { return networkUpdate}
+        }
+    }, stopSpinner;
+
 }
 
 /**
@@ -29,20 +36,20 @@ function getTodos() {
 function addTodo(text) {
     console.log('Add todo : ', text);
 
-    fetchAddTodo(text)
-        .then(data => {
-            appendTodoHtml(data);
-        });
+    fetchAddTodo(text), (data) => {
+        appendTodoHtml(data)
+    }
 }
 
 /**
  * Suppression du todo identifié par id de l'API puis de la page web
- * @param {number} id du todo à supprimer
+ * @param {{id, text}} todo du todo à supprimer
  * @param {Event} event déclenché par le clic sur le bouton de suppression
  */
-function deleteTodo(id, event) {
-    console.log('Delete todo ' + id + ' request');
+function deleteTodo(todo, event) {
+    console.log('Delete todo ' + todo + ' request');
 
-    fetchDeleteTodo(id)
-        .then(() => deleteTodoHtml(id));
+        fetchDeleteTodo(todo), () => {
+            deleteTodoHtml(todo);
+        }
 }

@@ -24,7 +24,7 @@ function stopSpinner(){
  * Vide la page web des modeles pour en ajouter de nouveaux
  * @param todos liste des nouveaux todos
  */
-function updatePage(todos){
+function updatePage(todos){ 
     clearTodos()
     todos.forEach(todo => appendTodoHtml(todo))
 }
@@ -44,7 +44,6 @@ function showErrorMessage(error){
  */
 window.addEventListener('load', () => {
     getTodos();
-
     const formAdd = document.forms['addTodo'];    
     formAdd.addEventListener('submit', event => {
         event.preventDefault();
@@ -92,7 +91,7 @@ function clearTodos() {
 }
 
 /**
- * Ajout d'un modele dans la page web
+ * Ajout de la poubelle et du bouton VR dans l'article
  * @param {{id, text}} todo à ajouter dans la page web
  */
 function createTrashButton(todo) {
@@ -130,7 +129,7 @@ function createTrashButton(todo) {
 
     /* L'action que produit le bouton de la poubelle */
     del.onclick=(event) => {
-        deleteTodo(todo.id, event);
+        deleteTodo(todo, event);
         event.stopPropagation();
     };
    
