@@ -92,6 +92,21 @@ article
     width: 5%;
 }
 
+.error_mess{
+    display: block;
+}
+
+.mdc_banner_text{
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+}
+
+#warning{
+    display: inline-block;
+    width: 10%;
+}
+
 #button{
     background-color: red;
     font-size: large;

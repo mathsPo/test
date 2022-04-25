@@ -1,17 +1,17 @@
 syncDom = document.getElementById('sync-wrapp');
-var db = new PouchDB('todos');
-var remoteCouch = 'http://localhost:5984/todos';
+var db = new PouchDB('models');
+var remoteCouch = 'http://127.0.0.1:5984/models';
 
 db.changes({
     since: 'now',
     live: true
-}).on('change', fetchTodos);
+}).on('change', fetchModel);
 
 /**
  * Requête de récupération de l'ensemble des todos de l'API
  * @returns une promesse contenant le tableau des todos
  */
-function fetchTodos() {
+function fetchModel() { 
     db.allDocs({include_docs: true, descending: true}, function(err, doc) {
         updatePage(doc.rows.map(x => x.doc));
     })
@@ -19,11 +19,11 @@ function fetchTodos() {
 
 /**
  * Requête sur l'API de suppression du todo 
- * @param {number} todo à supprimer 
+ * @param {number} model à supprimer 
  * @returns une promesse résolue à la suppression en BD
  */
-function fetchDeleteTodo(todo) {
-    db.remove(todo);
+function fetchDeleteModel(model) {
+    db.remove(model);
 }
 
 /**
@@ -31,14 +31,14 @@ function fetchDeleteTodo(todo) {
  * @param {string} text 
  * @returns une promesse résolue à l'ajout du todo dans la BD, contenant les données du todo ajouté
  */
-function fetchAddTodo(text) {
-    var todo = {
+function fetchAddModel(text) {
+    var model = {
         _id: new Date().toISOString(),
         text: text
     };
-    db.put(todo, (err, result) => {
+    db.put(model, (err, result) => {
         if (!err) {
-            console.log('Successfully add todo');
+            console.log('Successfully add model');
         }
     });
 }
@@ -48,11 +48,6 @@ function fetchAddTodo(text) {
  * la BdD local et le serveur.
  */
 function sync() {
-    syncDom.setAttribute('data-sync-state', 'syncing');
     var opts = {live: true};
-    db.sync(remoteCouch, opts, syncError);
-}
-
-function syncError() {
-    syncDom.setAttribute('data-sync-state', 'error');
+    db.sync(remoteCouch, opts);
 }

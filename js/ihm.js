@@ -1,4 +1,4 @@
-const todosContainer = document.querySelector("section.todos");
+const modelsContainer = document.querySelector("section.models");
 const spinner = document.getElementById("spin");
 const buttonAdd = document.getElementById("bb");
 const trash = document.getElementsByTagName("trash");
@@ -22,11 +22,11 @@ function stopSpinner(){
 
 /**
  * Vide la page web des modeles pour en ajouter de nouveaux
- * @param todos liste des nouveaux todos
+ * @param models liste des nouveaux todos
  */
-function updatePage(todos){ 
-    clearTodos()
-    todos.forEach(todo => appendTodoHtml(todo))
+function updatePage(models){ 
+    clearModel()
+    models.forEach(model => appendModelHtml(model))
 }
 
 /** 
@@ -43,34 +43,35 @@ function showErrorMessage(error){
  * Après le chargement de la page
  */
 window.addEventListener('load', () => {
-    getTodos();
-    const formAdd = document.forms['addTodo'];    
+    getModel();
+    sync();
+    const formAdd = document.forms['addModel'];    
     formAdd.addEventListener('submit', event => {
         event.preventDefault();
-        const text = formAdd.todo.value;
+        const text = formAdd.model.value;
         if (text) {
-            formAdd.todo.value = '';
+            formAdd.model.value = '';
 
-            addTodo(text);
+            addModel(text);
         }
     });
 });
 
 /**
  * Ajout d'un modele dans la page web
- * @param {{id, text}} todo à ajouter dans la page web
+ * @param {{id, text}} model à ajouter dans la page web
  */
-function appendTodoHtml(todo) {
+function appendModelHtml(model) {
 
     const article = document.createElement('article');
     const span = document.createElement('span');
-    span.innerText = todo.text;
+    span.innerText = model.text;
     article.appendChild(span);
-    article.id = 'article' + todo.id;
+    article.id = 'article' + model.id;
 
-    article.appendChild(createTrashButton(todo));
+    article.appendChild(createTrashButton(model));
 
-    todosContainer.appendChild(article);
+    modelsContainer.appendChild(article);
 }
 
 /**
@@ -84,17 +85,17 @@ function emptyElement(htmlElement) {
 }
 
 /**
- * Supprime tous les articles du DIV todosContainer
+ * Supprime tous les articles du DIV modelsContainer
  */
-function clearTodos() {
-    emptyElement(todosContainer);
+function clearModel() {
+    emptyElement(modelsContainer);
 }
 
 /**
  * Ajout de la poubelle et du bouton VR dans l'article
- * @param {{id, text}} todo à ajouter dans la page web
+ * @param {{id, text}} model à ajouter dans la page web
  */
-function createTrashButton(todo) {
+function createTrashButton(model) {
     /* Creation du bouton de RA */
     const va_icon = document.createElement('button');
     va_icon.type = 'button';
@@ -123,13 +124,13 @@ function createTrashButton(todo) {
 
     /* L'action que produit le bouton de RA */
     va_icon.onclick=(event) => {
-        document.location.href="models/" + todo.text + ".html";
+        document.location.href="models/" + model.text + ".html";
         event.stopPropagation(); 
     };
 
     /* L'action que produit le bouton de la poubelle */
     del.onclick=(event) => {
-        deleteTodo(todo, event);
+        deleteModel(model, event);
         event.stopPropagation();
     };
    
@@ -141,10 +142,10 @@ function createTrashButton(todo) {
  * Suppression du modele de la page web
  * @param {number} id 
  */
-function deleteTodoHtml(id) {
+function deleteModelHtml(id) {
     const article = document.querySelector('#article'+id);
     console.log("successfully deleted");         
-    todosContainer.removeChild(article);
+    modelsContainer.removeChild(article);
 }
 
 

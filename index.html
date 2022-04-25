@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>PWA - TodoList</title>
+    <title>PWA - Liste des modeles en RA</title>
     
     <meta charset="UTF-8">
 
@@ -44,15 +44,17 @@
              role="alertdialog"
              aria-live="assertive">
             <div class="mdc-banner__graphic-text-wrapper">
-                <span class="material-icons">
-                    error
-                </span>
-                <div class="mdc-banner__text">
-                    Impossible d'obtenir l'API, il se peut que les taches affichées à l'écran soit eronnés
+                <div class="error_mess">
+                    <span class="material-icons" id="warning">
+                        error
+                    </span>
+                    <div class="mdc_banner_text">
+                        Attention, vous n'êtes pas connecté a internet
+                    </div>
+                    <span class="material-icons" id="warning">
+                        error
+                    </span>
                 </div>
-                <span class="material-icons">
-                    error
-                </span>
             </div>
         </div>
     </div>
@@ -80,9 +82,9 @@
 
 <section class="form">
 
-    <form name="addTodo">
-        <label for="todo">modele</label>
-        <input type="text" name="todo" id="todo"/>
+    <form name="addModel">
+        <label for="model">modele</label>
+        <input type="text" name="model" id="model"/>
         <button type="submit" class="mdc-button mdc-button--raised mdc-button--leading" id="bb">
             <i class="mdc-button__label">
                 Ajouter un nouveau modele
@@ -94,12 +96,8 @@
     </form>
 </section>
 
-<section class="todos">
+<section class="models">
 </section>
-<div id="sync-wrapper">
-    <div id="sync-success">En cour de synchro</div>
-    <div id="sync-error">Probleme de synchro bg</div>
-</div>
 
 
 <script src="//cdn.delivr.net/npm/pouchdb@7.3.0/dist/pouchdb.min.js"></script>

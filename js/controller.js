@@ -1,13 +1,14 @@
-function getTodos() {
-    console.log('get todos request');
+function getModel() {
+    console.log('get modele request');
 
-    clearTodos();
+    clearModel();
     var networkDataReceived = false;
     startSpinner();
 
-    var networkUpdate = fetchTodos();
+    var networkUpdate = fetchModel();
         (data, err) => {
         networkDataReceived = true;
+        
         updatePage(data);
         if (err){
             setOfflineMode;
@@ -18,6 +19,7 @@ function getTodos() {
             throw Error("No data");
         }
         return response.json();
+
     }, (data, err) => {
         if(!networkDataReceived){
             updatePage(data);
@@ -25,31 +27,35 @@ function getTodos() {
         if(err){
             () => { return networkUpdate}
         }
-    }, stopSpinner;
-
+        else{
+            showErrorMessage;
+            
+        }
+    },
+    stopSpinner();
 }
 
 /**
  * Ajout d'un todo dans l'API contenant le text précisé puis ajout dans la page web
  * @param {string} text
  */
-function addTodo(text) {
-    console.log('Add todo : ', text);
+function addModel(text) {
+    console.log('Add model : ', text);
 
-    fetchAddTodo(text), (data) => {
-        appendTodoHtml(data)
+    fetchAddModel(text), (data) => {
+        appendModelHtml(data)
     }
 }
 
 /**
  * Suppression du todo identifié par id de l'API puis de la page web
- * @param {{id, text}} todo du todo à supprimer
+ * @param {{id, text}} model du todo à supprimer
  * @param {Event} event déclenché par le clic sur le bouton de suppression
  */
-function deleteTodo(todo, event) {
-    console.log('Delete todo ' + todo + ' request');
+function deleteModel(model, event) {
+    console.log('Delete model ' + model + ' request');
 
-        fetchDeleteTodo(todo), () => {
-            deleteTodoHtml(todo);
+        fetchDeleteModel(model), () => {
+            deleteModelHtml(model);
         }
 }

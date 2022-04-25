@@ -1,5 +1,5 @@
 const STATIC_CACHE_NAME = "webApp.v1";
-const todoList_CACHE_NAME = 'todolist';
+const modelList_CACHE_NAME = 'modellist';
 
 this.addEventListener('install', function(event) {
     event.waitUntil(
@@ -77,7 +77,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
     if (event.request.url.startsWith("http://localhost:7000/")) {
         event.respondWith(
-            caches.open(todoList_CACHE_NAME).then(function (cache) {
+            caches.open(modelList_CACHE_NAME).then(function (cache) {
                 return fetch(event.request).then(function (response) {
                     cache.put(event.request, response.clone());
                     return response;
