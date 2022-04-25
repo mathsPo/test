@@ -5,7 +5,6 @@ this.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(STATIC_CACHE_NAME).then(function(cache) {
             return cache.addAll([
-                '/',
                 '/index.html',
                 '/css/style.css',
                 '/css/modele.css',
