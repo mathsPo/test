@@ -7,7 +7,6 @@ this.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                'manifest.json',
                 '/models/antilope.html',
                 '/models/doggy.html',
                 '/models/Bee.html',
