@@ -8,8 +8,7 @@ db.changes({
 }).on('change', fetchModel);
 
 /**
- * Requête de récupération de l'ensemble des todos de l'API
- * @returns une promesse contenant le tableau des todos
+ * Requête de récupération de l'ensemble des modeles dans la base de donnée
  */
 function fetchModel() { 
     db.allDocs({include_docs: true, descending: true}, function(err, doc) {
@@ -18,18 +17,16 @@ function fetchModel() {
 }
 
 /**
- * Requête sur l'API de suppression du todo 
- * @param {number} model à supprimer 
- * @returns une promesse résolue à la suppression en BD
+ * Requête sur la base de donnée de suppression du modele 
+ * @param model à supprimer 
  */
 function fetchDeleteModel(model) {
     db.remove(model);
 }
 
 /**
- * Requête d'ajout d'un todo dans la BD avec le text précisé
+ * Requête d'ajout d'un modele dans la BD avec le text précisé
  * @param {string} text 
- * @returns une promesse résolue à l'ajout du todo dans la BD, contenant les données du todo ajouté
  */
 function fetchAddModel(text) {
     var model = {

@@ -1,5 +1,5 @@
 {
-  "name": "todolist-pwa",
+  "name": "realite-augmentee-pwa",
   "version": "1.0.0",
   "dependencies": {
     "@google/model-viewer": "^1.11.0",

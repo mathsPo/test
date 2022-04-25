@@ -1,5 +1,5 @@
 const STATIC_CACHE_NAME = "webApp.v1";
-const modelList_CACHE_NAME = 'modellist';
+const modelList_CACHE_NAME = 'modelelist';
 
 this.addEventListener('install', function(event) {
     event.waitUntil(

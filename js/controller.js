@@ -29,14 +29,13 @@ function getModel() {
         }
         else{
             showErrorMessage;
-            
         }
     },
     stopSpinner();
 }
 
 /**
- * Ajout d'un todo dans l'API contenant le text précisé puis ajout dans la page web
+ * Ajout d'un modele dans la base de donnée contenant le text précisé puis ajout dans la page web
  * @param {string} text
  */
 function addModel(text) {
@@ -48,8 +47,8 @@ function addModel(text) {
 }
 
 /**
- * Suppression du todo identifié par id de l'API puis de la page web
- * @param {{id, text}} model du todo à supprimer
+ * Suppression d'un modele identifié par son id de la base de donnée puis de la page web
+ * @param {{id, text}} model à supprimer
  * @param {Event} event déclenché par le clic sur le bouton de suppression
  */
 function deleteModel(model, event) {

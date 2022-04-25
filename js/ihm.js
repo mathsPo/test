@@ -22,7 +22,7 @@ function stopSpinner(){
 
 /**
  * Vide la page web des modeles pour en ajouter de nouveaux
- * @param models liste des nouveaux todos
+ * @param models liste des nouveaux modeles
  */
 function updatePage(models){ 
     clearModel()
@@ -92,7 +92,7 @@ function clearModel() {
 }
 
 /**
- * Ajout de la poubelle et du bouton VR dans l'article
+ * Ajout de la poubelle et du bouton RA dans l'article
  * @param {{id, text}} model à ajouter dans la page web
  */
 function createTrashButton(model) {
@@ -139,13 +139,13 @@ function createTrashButton(model) {
 }
 
 /**
- * Suppression du modele de la page web
+ * Suppression du modele de la page web identifié par son id
  * @param {number} id 
  */
 function deleteModelHtml(id) {
     const article = document.querySelector('#article'+id);
-    console.log("successfully deleted");         
     modelsContainer.removeChild(article);
+        console.log("successfully deleted");
 }
 
 
