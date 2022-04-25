@@ -7,10 +7,6 @@ this.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/models/antilope.html',
-                '/models/doggy.html',
-                '/models/Bee.html',
-                '/models/cube.html',
                 '/css/style.css',
                 '/css/modele.css',
                 '/js/BDRequest.js',
