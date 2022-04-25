@@ -6,16 +6,6 @@ this.addEventListener('install', function(event) {
         caches.open(STATIC_CACHE_NAME).then(function(cache) {
             return cache.addAll([
                 '/index.html',
-                '/css/style.css',
-                '/css/modele.css',
-                '/js/BDRequest.js',
-                '/js/controller.js',
-                '/js/ihm.js',
-                '/js/pwa.js',
-                '/manifest.json',
-                'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
-                'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css',
-                'https://fonts.googleapis.com/icon?family=Material+Icons'
             ]);
         })
     );
