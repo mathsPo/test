@@ -4,24 +4,25 @@ const buttonInstall = document.getElementById("button");
 let deferredPrompt = 10;
 
 function showInstallPromotion(){
-    conteneur_boutton.classList.remove('hidden');
+    buttonInstall.classList.remove('hidden');
 }
 
 function hideInstallPromotion(){
-    conteneur_boutton.classList.add('hidden');
+    buttonInstall.classList.add('hidden');
 }
 
 window.addEventListener('beforeinstallprompt', (e) => {
+    showInstallPromotion();
     e.preventDefault();
     deferredPrompt = e;
     console.log(deferredPrompt);
-   showInstallPromotion();
+    console.log('L\'evenement beforeinstallprompt a ete declenché');
 })
 
 buttonInstall.addEventListener('click', async () => {
     hideInstallPromotion();
     console.log(deferredPrompt);
-    deferredPrompt.prompt('Installer la PWA ?');
+    deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     console.log(`User response to the install prompt: ${outcome}`);
     deferredPrompt = null;
