@@ -7,7 +7,7 @@ this.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(STATIC_CACHE_NAME).then(function(cache) {
             return cache.addAll([
-                '/index.html',
+                '/test/index.html',
             ]);
         })
     );
@@ -15,7 +15,7 @@ this.addEventListener('install', function(event) {
 });
 
 self.addEventListener("fetch", (event) => {
-    if (event.request.url.startsWith("http://localhost:5500/")) {
+    if (event.request.url.startsWith("http")) {
         event.respondWith(
             caches.open(STATIC_CACHE_NAME).then(function (cache) {
                 return cache.match(event.request).then(function (response) {
