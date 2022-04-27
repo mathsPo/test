@@ -38,7 +38,7 @@ this.addEventListener('install', function(event) {
                 '/icon/saint_ex_512x512.png',
                 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
                 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css',
-                'https://fonts.googleapis.com/icon?family=Material+Icons'
+                'https://fonts.googleapis.com/icon?family=Material+Icons',
             ]);
         })
     );
