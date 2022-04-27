@@ -20,7 +20,6 @@ this.addEventListener('install', function(event) {
                 '/test/js/controller.js',
                 '/test/js/ihm.js',
                 '/test/js/pwa.js',
-                '/test/manifest.json',
                 '/test/icon/antilope.glb',
                 '/test/icon/Doggy.glb',
                 '/test/icon/Bee.glb',
