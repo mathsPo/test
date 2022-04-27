@@ -1,14 +1,48 @@
 const STATIC_CACHE_NAME = "webApp.v1";
 const modelList_CACHE_NAME = 'modelelist';
 
-this.addEventListener('install', function(event) {
+// https://0a10d708-0299-414b-ae54-aff5c9f16148-bluemix.cloudant.com/dashboard.html
+
+this.addEventListener('install', function(event) {     
     event.waitUntil(
         caches.open(STATIC_CACHE_NAME).then(function(cache) {
             return cache.addAll([
+                '/',
                 '/index.html',
+                '/models/antilope.html',
+                '/models/doggy.html',
+                '/models/Bee.html',
+                '/models/cube.html',
+                '/css/style.css',
+                '/css/modele.css',
+                '/js/BDRequest.js',
+                '/js/controller.js',
+                '/js/ihm.js',
+                '/js/pwa.js',
+                '/manifest.json',
+                '/icon/antilope.glb',
+                '/icon/Doggy.glb',
+                '/icon/Bee.glb',
+                '/icon/cubeLUT.glb',
+                '/icon/stex.png',
+                '/icon/saint_ex_16x16.png',
+                '/icon/saint_ex_32x32.png',
+                '/icon/saint_ex_60x60.png',
+                '/icon/saint_ex_72x72.png',
+                '/icon/saint_ex_96x96.png',
+                '/icon/saint_ex_120x120.png',
+                '/icon/saint_ex_144x144.png',
+                '/icon/saint_ex_152x152.png',
+                '/icon/saint_ex_180x180.png',
+                '/icon/saint_ex_192x192.png',
+                '/icon/saint_ex_512x512.png',
+                'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
+                'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css',
+                'https://fonts.googleapis.com/icon?family=Material+Icons'
             ]);
         })
     );
+    console.log('service worker installé');
 });
 
 self.addEventListener("fetch", (event) => {
