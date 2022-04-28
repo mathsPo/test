@@ -2,7 +2,7 @@
     "short_name": "pwa-ra",
     "name": "la pwa, le nouvel outil de mediation basé sur la réalité augmenté",
     "lang": "fr",
-    "start_url": "/index.html",
+    "start_url": "/test/index.html",
     "background_color": "#00aae7",
     "theme_color": "#00aae7",
     "dir": "ltr",
@@ -13,7 +13,7 @@
       "src": "icon/saint_ex_192x192.png",
       "type": "image/png",
       "sizes": "192x192",
-	    "purpose": "any"
+	    "purpose": "maskable"
     },
     {
       "src": "icon/saint_ex_180x180.png",
