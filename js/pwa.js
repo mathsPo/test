@@ -14,14 +14,12 @@ function hideInstallPromotion(){
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    console.log(deferredPrompt);
     console.log('L\'evenement beforeinstallprompt a ete declenché');
     showInstallPromotion();  
 })
 
 buttonInstall.addEventListener('click', async () => {
     hideInstallPromotion();
-    console.log(deferredPrompt);
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     console.log(`User response to the install prompt: ${outcome}`);
