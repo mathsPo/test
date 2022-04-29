@@ -2,6 +2,8 @@ syncDom = document.getElementById('sync-wrapp');
 var db = new PouchDB('models');
 var remoteCouch = 'http://127.70.25.9:5984/models';
 
+// Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+
 db.changes({
     since: 'now',
     live: true

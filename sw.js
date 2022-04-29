@@ -14,6 +14,7 @@ this.addEventListener('install', function(event) {
                 '/test/models/doggy.html',
                 '/test/models/bee.html',
                 '/test/models/cube.html',
+                '/test/models/crotte.html',
                 '/test/css/style.css',
                 '/test/css/modele.css',
                 '/test/js/BDRequest.js',
