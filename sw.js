@@ -52,7 +52,9 @@ self.addEventListener("fetch", (event) => {
             caches.open(STATIC_CACHE_NAME).then(function (cache) {
                 return cache.match(event.request).then(function (response) {
                     const fetchPromise = fetch(event.request).then(function (networkResponse) {
-                        cache.put(event.request, networkResponse.clone());
+                        if((event.request.url.indexOf('http') === 0)){ 
+                            cache.put(event.request, networkResponse.clone());
+                        }
                         return networkResponse;
                     });
                     return response || fetchPromise;
