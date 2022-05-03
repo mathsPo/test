@@ -39,11 +39,13 @@ function getModel() {
  * @param {string} text
  */
 function addModel(text) {
+    startSpinner();
     console.log('Add model : ', text);
 
     fetchAddModel(text), (data) => {
         appendModelHtml(data)
     }
+    stopSpinner();
 }
 
 /**
@@ -52,9 +54,11 @@ function addModel(text) {
  * @param {Event} event déclenché par le clic sur le bouton de suppression
  */
 function deleteModel(model, event) {
+    startSpinner();
     console.log('Delete model ' + model + ' request');
 
         fetchDeleteModel(model), () => {
             deleteModelHtml(model);
         }
+    stopSpinner();
 }
