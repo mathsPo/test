@@ -1,6 +1,6 @@
 syncDom = document.getElementById('sync-wrapp');
 var db = new PouchDB('models');
-var remoteCouch = 'http://127.70.25.9:5984/models';
+var remoteCouch = 'http://127.0.0.1/models';
 
 
 
