@@ -20,6 +20,7 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js').then(function(reg) {
@@ -94,18 +95,27 @@
             <span class="material-icons">
                         add_circle_outline
             </span>        
+            
         </button>
+        <input type="file" id="file-selector" multiple>
     </form>
+    <div id="detail-files"></div>
 </section>
+
 
 <section class="models">
+
 </section>
 
+<section class="visualisation">
+
+</section>
+<div class="model-viewer">
+
+</div>
 
 <script src="//cdn.delivr.net/npm/pouchdb@7.3.0/dist/pouchdb.min.js"></script>
 <script src="js/ihm.js" type='application/javascript'></script>
-<script src="js/BDRequest.js" type='application/javascript'></script>
-<script src="js/controller.js" type='application/javascript'></script>
 <script src="js/pwa.js" type="application/javascript"></script>
 </body>
 </html>

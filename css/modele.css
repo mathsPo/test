@@ -20,8 +20,21 @@ body {
     border-radius: 3px;
     }
 
-#model {
-    width: 100%;
-    min-height: 700px;
+.image {
+    display: flex;
+    min-height: 400px;
+    text-align: center;
 }
 
+#container {
+    display: block;
+}
+
+.model{
+    width: 49%;
+    display: inline-block;
+}
+/*
+h2{
+    text-align: center;
+}

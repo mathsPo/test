@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Admin</title>
+    
+    <meta charset="UTF-8">
+
+    <meta name="author" content="Pol Mathis">
+    <meta name="description" content="Coté admin pour pouvoir ajouter des 'collections'permanentes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <section class="form">
+
+        <form name="addModel">
+            <label for="model">modele</label>
+            <input type="text" name="model" id="model"/>
+            <button type="submit" class="mdc-button mdc-button--raised mdc-button--leading" id="bb">
+                <i class="mdc-button_label">
+                    Ajouter un nouveau modele
+                </i>
+                <span class="material-icons">
+                            add_circle_outline
+                </span>        
+                
+            </button>
+        </form>
+        <div id="detail-files"></div>
+    </section>
+</body>

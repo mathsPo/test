@@ -2,6 +2,22 @@ const modelsContainer = document.querySelector("section.models");
 const spinner = document.getElementById("spin");
 const buttonAdd = document.getElementById("bb");
 const trash = document.getElementsByTagName("trash");
+const visual = document.querySelector("section.visualisation");
+const mv = document.querySelector("div.model-viewer")
+
+var listeFile = []
+
+/**
+ * fonction qui lit les fichiers selectionnés par l'input de type file et qui creer l'element HTML article
+ */
+ const result = document.getElementById('detail-files');
+ document.getElementById('file-selector').addEventListener('change', (event) => {
+
+     for(const file of event.target.files){
+         appendModelHtml(file);
+         listeFile.push(file);
+     }
+ });
 
 /**
  * Ajout d'un spinner au chargement de la page
@@ -43,33 +59,23 @@ function showErrorMessage(error){
  * Après le chargement de la page
  */
 window.addEventListener('load', () => {
-    getModel();
-    sync();
-    const formAdd = document.forms['addModel'];    
-    formAdd.addEventListener('submit', event => {
-        event.preventDefault();
-        const text = formAdd.model.value;
-        if (text) {
-            formAdd.model.value = '';
+    startSpinner();
+    stopSpinner();
 
-            addModel(text);
-        }
-    });
 });
 
 /**
  * Ajout d'un modele dans la page web
- * @param {{id, text}} model à ajouter dans la page web
+ * @param file à ajouter dans la page web
  */
-function appendModelHtml(model) {
-
+function appendModelHtml(file) {
     const article = document.createElement('article');
     const span = document.createElement('span');
-    span.innerText = model.text;
+    span.innerText = file.name;
     article.appendChild(span);
-    article.id = 'article' + model.id;
+    article.id = 'article' + file.name;
 
-    article.appendChild(createTrashButton(model));
+    article.appendChild(createTrashButton(file));
 
     modelsContainer.appendChild(article);
 }
@@ -93,9 +99,9 @@ function clearModel() {
 
 /**
  * Ajout de la poubelle et du bouton RA dans l'article
- * @param {{id, text}} model à ajouter dans la page web
+ * @param file à ajouter dans la page web
  */
-function createTrashButton(model) {
+function createTrashButton(file) {
     /* Creation du bouton de RA */
     const va_icon = document.createElement('button');
     va_icon.type = 'button';
@@ -124,13 +130,20 @@ function createTrashButton(model) {
 
     /* L'action que produit le bouton de RA */
     va_icon.onclick=(event) => {
-        document.location.href="models/" + model.text + ".html";
+        while (visual.firstChild) {
+            visual.removeChild(visual.firstChild);
+        }
+        h2 = document.createElement('h2');
+        h2.textContent = "Modele de " + file.name;
+        mv.innerHTML = `<model-viewer class='image' src='modeles/${file.name}' shadow-intensity='1' ar ar-modes='webxr scene-viewer quick-look' camera-controls min-camera-orbit='auto auto 100%' max-camera-orbit='auto auto 100%' min-field-of-view='45deg' max-field-of-view='45deg' environment-image='neutral' auto-rotate autoplay></model-viewer>`
+        document.getElementsByClassName("image").src="modeles/" + file.name;
+        visual.appendChild(h2)  
         event.stopPropagation(); 
     };
 
     /* L'action que produit le bouton de la poubelle */
     del.onclick=(event) => {
-        deleteModel(model, event);
+        deleteModel(file.name, event);
         event.stopPropagation();
     };
    
@@ -139,20 +152,25 @@ function createTrashButton(model) {
 }
 
 /**
- * Suppression du modele de la page web identifié par son id
- * @param {number} id 
- */
-function deleteModelHtml(id) {
-    const article = document.querySelector('#article'+id);
-    modelsContainer.removeChild(article);
-        console.log("successfully deleted");
-}
-
-
-/**
  * Bascule l'application en mode hors ligne si la liste des taches n'a pu etre obtenue
  */
 function setOfflineMode() {
     const banner = new mdc.banner.MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
+}
+
+/**
+ * Suppression d'un modele identifié par son id de la base de donnée puis de la page web
+ * @param name du model à supprimer
+ * @param {Event} event déclenché par le clic sur le bouton de suppression
+ */
+ function deleteModel(name) {
+    startSpinner();
+    console.log('Delete model ' + name + ' request');
+    console.log(name);
+    const article = document.getElementById('article' + name);
+    modelsContainer.removeChild(article);
+
+    console.log("successfully deleted");
+    stopSpinner();
 }
