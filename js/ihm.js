@@ -136,7 +136,7 @@ function createTrashButton(file) {
         h2 = document.createElement('h2');
         h2.textContent = "Modele de " + file.name;
         console.log(file.webkitRelativePath);
-        mv.innerHTML = `<model-viewer class='image' src='${file.webkitRelativePath}' shadow-intensity='1' ar ar-modes='webxr scene-viewer quick-look' camera-controls min-camera-orbit='auto auto 100%' max-camera-orbit='auto auto 100%' min-field-of-view='45deg' max-field-of-view='45deg' environment-image='neutral' auto-rotate autoplay></model-viewer>`
+        mv.innerHTML = `<model-viewer class='image' id='modelv' src='${file.webkitRelativePath}' shadow-intensity='1' ar ar-modes='webxr scene-viewer quick-look' camera-controls min-camera-orbit='auto auto 100%' max-camera-orbit='auto auto 100%' min-field-of-view='45deg' max-field-of-view='45deg' environment-image='neutral' auto-rotate autoplay></model-viewer>`
         visual.appendChild(h2)  
         event.stopPropagation(); 
     };

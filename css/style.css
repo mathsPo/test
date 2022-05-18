@@ -12,6 +12,39 @@ body {
 
 section.form {
     padding: 1rem;
+    text-align: center;
+    margin: 0.5rem 1rem;
+}
+
+h2{
+    text-align: center;
+    padding-top: 5rem;
+}
+
+#logostex{
+    position: absolute;
+    margin: 1rem;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    font-weight: 500;
+    border: 17px solid rgb(255, 235, 0);
+    border-radius: 3px;
+}
+
+#modelv{
+    width: 100%;
+    min-height: 700px;
+}
+
+div.model-viewer{
+    text-align: center;
+}
+
+div.userInput{
+    background-color: red;
 }
 
 form[name="addTodo"] {

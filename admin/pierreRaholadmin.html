@@ -10,23 +10,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" />
 </head>
 <body>
     <section class="form">
 
-        <form name="addModel">
-            <label for="model">modele</label>
-            <input type="text" name="model" id="model"/>
-            <button type="submit" class="mdc-button mdc-button--raised mdc-button--leading" id="bb">
+        <form name="addCollection" method="post" action="../modele.php">
+            <label for="nomCollect">modele</label>
+            <input type="text" name="nomCollect" id="nomCollect" required/>
+            </br>
+            <label for="url">URL du dossier <source></label>
+            <input type="text" name="url" id="url" required>
+            </br>
+            <button type="submit" class="mdc-button mdc-button--raised mdc-button--leading" id="submit">
                 <i class="mdc-button_label">
-                    Ajouter un nouveau modele
+                    Ajouter une nouvelle collection
                 </i>
                 <span class="material-icons">
                             add_circle_outline
                 </span>        
-                
             </button>
         </form>
+
+        <section id="affichage">
+
+        </section>
+
         <div id="detail-files"></div>
     </section>
+
+    <script>
+        listeCollection = [['collection n°1: cathedrale', 'http://cathedrale-de-reims.fr']];
+        const zoneAffichage = document.getElementById("affichage");
+        const formu = document.forms['addCollection'];
+        //declenche toute les action a effectuer contenue entre les quotes au chargemment de la page
+        window.addEventListener('load', (event) => {
+            event.preventDefault();
+            //parcour du tableaux contenant toute les collections
+            for(let collection in listeCollection) {
+                let collec = listeCollection[collection];
+
+                //creation de l'article et du span
+                const article = document.createElement('article');
+                const span = document.createElement('span');
+                
+                //Creation du texte à affiché dans l'article 
+                span.textContent = collec[collection];
+
+                //fusion de l'article et du span et incorporation de celui ci dans la zone d'affichage
+                article.appendChild(span);
+                zoneAffichage.appendChild(article);
+                }
+                
+            formu.addEventListener('submit', (event) => {
+                event.preventDefault();
+                // Creation des constantes du nom, de l'url, de la collection et du numero de collection 
+                const valueNom = formu.nomCollect.value;
+                const valueURL = formu.url.value;
+                uneCollection = [];
+                const num = listeCollection.length + 1;
+
+                //creation de l'article et du span
+                const article = document.createElement('article');
+                const span = document.createElement('span');
+
+                //Creation du texte à affiché dans l'article 
+                let texte = span.textContent = 'collection n°' + num + ": " + valueNom;
+
+                //Integration du texte est de l'url dans le tableaux unecollection, lui meme integré aux tableaux listeCollection
+                uneCollection.push(texte);
+                uneCollection.push(valueURL);
+                console.log(uneCollection);
+                listeCollection.push(uneCollection);
+
+                //fusion de l'article, du div et du span et incorporation de celui ci dans la zone d'affichage
+                article.appendChild(span);   
+                article.appendChild(createTrashButton(valueNom));
+                zoneAffichage.appendChild(article);   
+
+                //vidage des zones de texte
+                formu.nomCollect.value = '';
+                formu.url.value='';
+
+                console.log(listeCollection);
+            });
+        })
+
+        function createTrashButton(file) {
+        /* Creation du bouton de RA */
+        const va_icon = document.createElement('button');
+        va_icon.type = 'button';
+        va_icon.name = 'va';
+        va_icon.classList.add('va');
+        const span = document.createElement('span');
+        span.classList.add('material-icons');
+        span.innerHTML = 'view_in_ar';
+        va_icon.appendChild(span); 
+
+        /* Creation du bouton poubelle */
+        const del = document.createElement('button');
+        del.type = 'button';
+        del.name = 'del';
+            del.classList.add('del')
+        const span2 = document.createElement('span');
+        span2.classList.add('material-icons');
+        span2.innerHTML = 'delete';
+      del.appendChild(span2);
+
+        /* Creation du div contenant les options de manipulation */
+        const div = document.createElement('div');
+        div.type = 'container';
+        div.appendChild(va_icon);
+        div.appendChild(del); 
+
+        /* L'action que produit le bouton de RA */
+        va_icon.onclick=(event) => {
+            document.location.href = '../modele.php';
+            form = document.createElement('form');
+            form
+        };
+
+        /* L'action que produit le bouton de la poubelle */
+        del.onclick=(event) => {
+            deleteModel(file.name, event);
+            event.stopPropagation();
+        };
+   
+    return div;
+
+}
+    </script>
 </body>
